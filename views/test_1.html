@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+</body>
+<script type="text/javascript" src="/bower_components/localforage/dist/localforage.js"></script>
+<script type="text/javascript">
+	console.log(localforage);
+	
+	localforage.setItem('test_1','test_1_value',function(err,value){
+		console.log(arguments);
+	});
+
+	localforage.setItem('test_3','test_3_value').then(function(err,value){
+		console.log(arguments);
+	});
+
+	localforage.getItem('test_3',function(value){
+		console.log(arguments);
+	});
+	
+	localforage.getItem('test_3').then(function(value){
+		console.log(arguments);
+	});
+
+	localforage.getItem('test_4').then(function(value){
+		console.log(arguments);
+	});
+
+	localforage.setItem('my array',[1,2,'three'],function(err,value){
+		console.log(value);
+		console.log(value[0]);
+	});
+	// localforage.getItem('photo',function(err,image){
+	// 	console.log(Date.now());
+	// 	var blob = new Blob([image]);
+	// 	var imageURI = window.URL.createObjectURL(blob);
+	// 	var myImage = new Image(100,200);
+
+	// 	myImage.src = imageURI;
+
+	// 	document.getElementsByTagName('body')[0].appendChild(myImage);
+
+	// });
+
+	// var request = new XMLHttpRequest();
+
+	// request.open('GET','/test.png',true);
+	// request.responseType = 'arraybuffer';
+	// request.addEventListener('readystatechange',function(){
+	// 	if(request.readyState === 4){ //done
+	// 		localforage.setItem('photo',request.response,function(image){
+	// 			var blob = new Blob([image]);
+	// 			var imageURI = window.URL.createObjectURL(blob);
+	// 	console.log(Date.now());
+
+	// 			console.log(imageURI);
+
+	// 		});
+	// 	}
+	// });
+	// request.send();
+
+	
+	// localforage.removeItem('test_1',function(err){
+	// 	console.log('test_1 is cleared');
+	// });
+	// // localforage.clear();
+	
+	// localforage.length(function(err,numberOfKyes){
+	// 	console.log(numberOfKyes);
+	// });
+	
+	// localforage.length().then(function(){
+	// 	console.log("length -> ",arguments);
+	// });
+	// localforage.key(0,function(err,keyName){
+	// 	console.log(keyName);
+	// });
+
+	// localforage.keys(function(){
+	// 	console.log(arguments);
+	// });
+	// 
+	// localforage.iterate(function(){
+	// 	console.log(arguments);
+	// },function(err){
+	// 	if(!err){
+	// 		console.log('Iteration has completed');
+	// 	}
+	// });
+
+	// localforage.iterate(function(){
+	// 	console.log(arguments);
+	// }).then(function(){
+	// 	console.log('Iteration has completed!');
+	// });
+	
+	//exit early
+	localforage.iterate(function(value,key,index){
+
+		console.log(arguments);
+		if(index >= 2 ){
+			return [key,value];	
+		}
+	}).then(function(result){
+		console.log('Iteration has completed!');
+		console.log(result);
+	});
+	//then(function(){},function(){})
+	
+</script>
+
+</html>

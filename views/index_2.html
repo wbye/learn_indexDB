@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script src="/bower_components/dexie/dist/latest/Dexie.js"></script>
+<script type="text/javascript">
+
+	// create your instance 
+	// select you which DataBase
+	// var db = new Dexie('MyDatabase');
+
+	//define your schema
+	// db.version(1).stores({
+		//define table myObjectStore1
+		// myObjectStore1:'primaryKey,index1,index2,...',
+		// myObjectStore2:'primaryKey,index1,index2,...'
+	// });
+	// db.open();
+	
+	var db = new Dexie('FriendsAndPetsDB');
+
+	// db.version(1).stores({
+	// 	friends:'++id,name,isCloseFriend',
+	// 	pets:'++id,name,kind'
+	// });
+
+	// db.open();
+	// db.friends.add({
+	// 	name:'Inge mar Bergman',
+	// 	isCloseFriend:true
+	// });
+	// db.pets.add({
+	// 	name:'Tom',
+	// 	kind:"dog",
+	// 	fur:"too long right now"
+	// });
+
+		db.version(1).stores({
+		friends:'++id,name,isCloseFriend',
+		pets:'++id,name,kind,fur'
+	});
+		db.open();
+		db.friends.add({
+			name:'test',
+			isCloseFriend:true
+		});
+
+</script>
+</html>

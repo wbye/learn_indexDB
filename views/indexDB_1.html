@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+<!-- https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API/Using_IndexedDB -->
+</body>
+<script type="text/javascript">
+	
+	// In the following line, you should include the prefixes of implementations you want to test.
+	window.indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
+	// DON'T use "var indexedDB = ..." if you're not in a function.
+	// Moreover, you may need references to some window.IDB* objects:
+	window.IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction || window.msIDBTransaction;
+	window.IDBKeyRange = window.IDBKeyRange || window.webkitIDBKeyRange || window.msIDBKeyRange;
+	// (Mozilla has never prefixed these objects, so we don't need window.mozIDB*)
+
+	if (!window.indexedDB) {
+	    window.alert("Your browser doesn't support a stable version of IndexedDB. Such and such feature will not be available.");
+	}
+
+
+	//open our database return IDBOpenRequest Object
+	var request = window.indexedDB.open("MyTestDataBase",3);//The version of the database determines the database schema , If the database doesn't already exist, it is created by the open operation
+	//, then an onupgradeneeded event is triggered and you create the database schema in the handler for this event. If the database does exist but you are specifying an upgraded version number, an onupgradeneeded event is triggered straight away, allowing you to provide an updated schema in its handler. 
+
+	// The open request doesn't open the database or start the transaction right away. The call to the open() function returns an IDBOpenDBRequest object with a result (success) or error value that you handle as an event. Most other asynchronous functions in IndexedDB do the same thing - return an IDBRequest object with the result or error. The result for the open function is an instance of an IDBDatabase.
+
+
+
+</script>
+
+</html>

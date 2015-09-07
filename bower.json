@@ -1,0 +1,15 @@
+{
+  "name": "test_indexDB",
+  "version": "0.0.0",
+  "authors": [
+    "ywbshiwo <785534746@qq.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

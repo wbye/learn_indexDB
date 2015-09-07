@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script src="/bower_components/localforage/dist/localforage.js"></script>
+<script type="text/javascript">
+	localforage.setDriver(localforage.LOCALSTORAGE).then(function(){
+		localforage.setItem("test_1002","test_10022").then(function(){
+			console.log(arguments);
+		});
+	},function(){
+
+	});
+
+	// localforage.setDriver([localforage.INDEXEDDB,localforage.WEBSQL]);
+	//operate in the  setDriver callback
+	// localforage.setItem("test_1001","222").then(function(){
+// 
+	// },function(){
+		// console.log(arguments);
+	// });
+</script>
+</html>
